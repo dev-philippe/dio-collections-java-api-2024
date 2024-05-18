@@ -5,7 +5,7 @@ import java.util.Objects;
 public class Contato {
     //atributos
 
-    private  String nome;
+    private String nome;
 
     private int numero;
 
@@ -40,9 +40,6 @@ public class Contato {
 
     @Override
     public String toString() {
-        return "Contato{" +
-                "nome='" + nome + '\'' +
-                ", numero=" + numero +
-                '}';
+        return "{" + nome + "," + numero + "}";
     }
 }

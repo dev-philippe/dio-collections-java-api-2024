@@ -1,6 +1,7 @@
 package operacoes_basicas.Map.Ordenacao__;
 
 import java.time.LocalDate;
+import java.time.Month;
 import java.util.*;
 
 public class AgendaEventos {
@@ -35,7 +36,7 @@ public class AgendaEventos {
         LocalDate proximaData = null;
         Evento proximoEvento = null;
         Map<LocalDate, Evento> eventoTreeMap = new TreeMap<>(eventosMap);
-        for (Map.Entry<LocalDate, Evento> entry : eventosMap.entrySet()) {
+        for (Map.Entry<LocalDate, Evento> entry : eventoTreeMap.entrySet()) {
             if (entry.getKey().isEqual(dataAtual) || entry.getKey().isAfter(dataAtual)) {
                 proximaData = entry.getKey();
                 proximoEvento = entry.getValue();
@@ -49,8 +50,17 @@ public class AgendaEventos {
 
     public static void main(String[] args) {
         AgendaEventos agendaEventos = new AgendaEventos();
+        agendaEventos.adicionarEvento(LocalDate.of(2022, Month.JULY, 15),"Evento 1", "Atração 1");
+        agendaEventos.adicionarEvento(LocalDate.of(2022, 7, 9),"Evento 2", "Atração 2");
+        agendaEventos.adicionarEvento(LocalDate.of(2000, Month.JANUARY, 10),"Evento 3", "Atração 3");
+        agendaEventos.adicionarEvento(LocalDate.of(2023, Month.JULY, 12),"Evento 4", "Atração 4  ");
+        agendaEventos.adicionarEvento(LocalDate.of(2024, Month.SEPTEMBER, 20),"Evento 6", "Atração 6  ");
 
-        System.out.println(LocalDate.now());
+        agendaEventos.exibirAgenda();
+        agendaEventos.obterProximoEvento();
+
+
+
 
     }
 }
